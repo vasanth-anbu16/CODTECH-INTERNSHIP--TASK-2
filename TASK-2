@@ -1,0 +1,48 @@
+name = input('Enter student\'s name: ')
+mmarks = int(input('Enter maximum marks: '))
+maths = float(input('Enter maths marks: '))
+python = float(input('Enter python marks: '))
+dbms = float(input('Enter DBMS marks: '))
+datastructure = float(input('Enter Datastructure marks: '))
+software_engineering = float(input('Enter software_engineering marks: '))
+
+# Validate the input
+if (maths > mmarks or python > mmarks or dbms > mmarks or 
+    datastructure > mmarks or software_engineering > mmarks):
+    print('Invalid marks inputted. Please re-enter the name and marks.')
+else:
+    # Check if the student has failed in any subject
+    if (maths < 35 or python < 35 or dbms < 35 or datastructure < 35 or software_engineering < 35):
+        print(name, 'Failed in the Examination.')
+    
+    totalmarks = maths + python + dbms + datastructure + software_engineering
+    perc = (totalmarks / (5 * mmarks)) * 100
+    average = totalmarks / 5
+    
+    # Print the percentage, average, and calculate GPA
+    print(name, ' got ', perc, '%')
+    print(name, 'Average marks: ', average)
+    
+    if perc >= 90:
+        grade = 'A Grade'
+        gpa = 4.0
+    elif perc >= 80:
+        grade = 'B Grade'
+        gpa = 3.0
+    elif perc >= 70:
+        grade = 'C Grade'
+        gpa = 2.0
+    elif perc >= 60:
+        grade = 'D Grade'
+        gpa = 1.0
+    else:
+        grade = 'Failed in the Examination'
+        gpa = 0.0
+    
+    # Print the grade and GPA
+    if gpa == 0.0:
+        print(name, grade)
+    else:
+        print(name, ' got ', grade)
+    
+    print(name, 'GPA: ', gpa)
